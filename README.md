@@ -1,5 +1,9 @@
-# OGP-SST
+# OG-SST
 
 [![Build Status](https://travis-ci.org/KamataRyo/ogp-sst.svg?branch=master)](https://travis-ci.org/KamataRyo/ogp-sst)
 
-this project URL endpoint to share Sea Surface Templature (SST) distribution image via SNS OGP.
+OpenGraph SST(Sea Surface Templature), or og:sst build URL endpoint to share SST distribution contour map via SNS Open Graph Protocol.
+
+## usage
+
+Share `http://example.com/YYYY/MM/DD` at Facebook wall and SST distribution contour map appears.
