@@ -1,4 +1,3 @@
-
 const validateParams = arg => {
   const { year, month, day } = arg
   if (!(year && month && day)) {
@@ -11,18 +10,17 @@ const validateParams = arg => {
   if (`${year}`.length !== 4) {
     return false
   }
-  if (+year < 1900 || 2100 < +year) {
-    return false
-  }
-
   if (`${month}`.length !== 2) {
     return false
   }
-  if (12 < +month) {
+  if (`${day}`.length !== 2) {
     return false
   }
 
-  if (`${day}`.length !== 2) {
+  if (+year < 1950 || 2100 < +year) {
+    return false
+  }
+  if (12 < +month) {
     return false
   }
   if (31 < +day) {
@@ -31,9 +29,7 @@ const validateParams = arg => {
   return true
 }
 
-const generateImageURL = (year, month, day) => {
-  return  `http://www.data.jma.go.jp/kaiyou/data/db/kaikyo/daily/image/HQ/${year}/sstD_HQ${year}${month}${day}.png`
-}
+const generateImageURL = (year, month, day) => `http://www.data.jma.go.jp/kaiyou/data/db/kaikyo/daily/image/HQ/${year}/sstD_HQ${year}${month}${day}.png`
 
 const generateHTMLHead = (year, month, day) => {
   return `<header>
