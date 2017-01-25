@@ -1,6 +1,7 @@
 const app = require('express')()
 const lib = require('./lib')
 
+const PORT = process.env.PORT || 3000
 app.get('/:year/:month/:day', (req, res) => {
   const { year, month, day } = req.params
   res.write(`<html>
@@ -10,6 +11,6 @@ app.get('/:year/:month/:day', (req, res) => {
   res.end()
 })
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('app is listening..')
 })
