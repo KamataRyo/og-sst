@@ -1,13 +1,41 @@
 
+const validateParams = arg => {
+  const { year, month, day } = arg
+  if (!(year && month && day)) {
+    return false
+  }
+  if (isNaN(year) || isNaN(month) || isNaN(day)) {
+    return false
+  }
+
+  if (`${year}`.length !== 4) {
+    return false
+  }
+  if (+year < 1900 || 2100 < +year) {
+    return false
+  }
+
+  if (`${month}`.length !== 2) {
+    return false
+  }
+  if (12 < +month) {
+    return false
+  }
+
+  if (`${day}`.length !== 2) {
+    return false
+  }
+  if (31 < +day) {
+    return false
+  }
+  return true
+}
+
 const generateImageURL = (year, month, day) => {
-  if (+month < 10) { month = '0' + +month }
-  if (+day < 10) { day = '0' + +day }
   return  `http://www.data.jma.go.jp/kaiyou/data/db/kaikyo/daily/image/HQ/${year}/sstD_HQ${year}${month}${day}.png`
 }
 
 const generateHTMLHead = (year, month, day) => {
-  if (+month < 10) { month = '0' + +month }
-  if (+day < 10) { day = '0' + +day }
   return `<header>
     <meta property="og:title" content="日本近海の表層水温 - ${year}/${month}/${day}"/>
     <meta property="og:description" content="出典:気象庁ホームページ (http://www.data.jma.go.jp/kaiyou/data/db/kaikyo/daily/sst_HQ.html#kaisetu)" />
@@ -16,8 +44,6 @@ const generateHTMLHead = (year, month, day) => {
 }
 
 const generateHTMLBody = (year, month, day) => {
-  if (+month < 10) { month = '0' + month }
-  if (+day < 10) { day = '0' + day }
   return `<body>
   <h1>${year}/${month}/${day}の日本近海の表層水温</h1>
   <img src="${generateImageURL(year, month, day)}" alt="" />
@@ -30,4 +56,9 @@ const generateHTMLBody = (year, month, day) => {
 
 }
 
-module.exports = { generateImageURL, generateHTMLHead, generateHTMLBody }
+module.exports = {
+  validateParams,
+  generateImageURL,
+  generateHTMLHead,
+  generateHTMLBody
+}
