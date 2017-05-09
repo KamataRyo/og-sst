@@ -1,4 +1,21 @@
 <html>
-    <h1>OGP-SST<%= title %></h1>
+  <header>
+    <meta property="og:title" content="日本近海の表層水温 - ${year}/${month}/${day}"/>
+    <meta property="og:description" content="日本近海の表層水温コンターマップをシェアするサービスです。" />
+    <meta property="og:image" content="<%= url %>" />
+    <meta name="title" content="OGP-SST|<%= year %>/<%= month %>/<%= day %>の日本近海の表層水温">
+  </header>
+  <body>
+    <h1><%= year %>/<%= month %>/<%= day %>の日本近海の表層水温</h1>
     <p></p>
+
+  <img src="<%= url %>" alt="" />
+  <p>このサイトは気象庁ホームページのコンテンツを利用して作成しています。</p>
+  <dl>
+    <dt>出典</dt>
+    <dd>気象庁ホームページ | 日別海面水温<br>
+      <a href="http://www.data.jma.go.jp/kaiyou/data/db/kaikyo/daily/sst_HQ.html#kaisetu">http://www.data.jma.go.jp/kaiyou/data/db/kaikyo/daily/sst_HQ.html#kaisetu</a>
+    </dd>
+  </dl>
+  </body>
 </html>
