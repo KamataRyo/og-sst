@@ -1,4 +1,4 @@
-# OG-SST
+# OGP-SST
 
 [![Build Status](https://travis-ci.org/KamataRyo/ogp-sst.svg?branch=master)](https://travis-ci.org/KamataRyo/ogp-sst)
 
