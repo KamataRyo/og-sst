@@ -1,7 +1,7 @@
 {
   "name": "ogp-sst",
   "version": "1.0.0",
-  "description": "",
+  "description": "Show Sea Surface templature on OGP",
   "main": "app.js",
   "engines": {
     "node": "6.11.1"
